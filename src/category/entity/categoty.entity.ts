@@ -2,16 +2,13 @@ import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Board} from "../../board/entity/board.entity";
 
 @Entity()
-export class User{
+export class Category {
     @PrimaryGeneratedColumn()
     id : number
 
     @Column()
-    email : string
-
-    @Column()
     name : string
 
-    @OneToMany(() => Board , board => board.user)
-    boards : Board[]
+    @OneToMany(() => Board, board => board.category)
+    board : Board[];
 }

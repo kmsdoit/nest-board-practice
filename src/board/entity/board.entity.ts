@@ -1,8 +1,9 @@
-import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {User} from "../../users/entity/user.entity";
+import {Category} from "../../category/entity/categoty.entity";
 
 
-@Entity({name : 'Board'})
+@Entity()
 export class Board {
     @PrimaryGeneratedColumn()
     id : number
@@ -20,5 +21,9 @@ export class Board {
     like_count : number
 
     @ManyToOne(() => User, user => user.boards)
-    userId : User
+    user : User
+
+    @ManyToOne(() => Category, category => category.board)
+    @JoinColumn({name : "categoryId"})
+    category : Category
 }

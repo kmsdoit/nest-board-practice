@@ -30,7 +30,7 @@ export class BoardService {
             const board = new Board()
             board.title = title
             board.content = content
-            board.userId = user
+            board.user = user
             const new_board = await this.boardRepository.save(board)
             await queryRunner.commitTransaction()
             return new_board

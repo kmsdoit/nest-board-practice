@@ -5,6 +5,7 @@ import { BoardModule } from './board/board.module';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import { UsersModule } from './users/users.module';
 import { HeartModule } from './heart/heart.module';
+import { CategoryModule } from './category/category.module';
 
 
 @Module({
@@ -17,7 +18,7 @@ import { HeartModule } from './heart/heart.module';
     synchronize : true,
     entities: [__dirname + '/**/*.entity{.ts,.js}'],
     logging : true
-  }), UsersModule, HeartModule],
+  }), UsersModule, HeartModule, CategoryModule],
   controllers: [AppController],
   providers: [AppService],
 })
